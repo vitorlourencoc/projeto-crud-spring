@@ -1,0 +1,13 @@
+package com.vitorlourencoc.projeto_crud_spring;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ProjetoCrudSpringApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ProjetoCrudSpringApplication.class, args);
+	}
+
+}
