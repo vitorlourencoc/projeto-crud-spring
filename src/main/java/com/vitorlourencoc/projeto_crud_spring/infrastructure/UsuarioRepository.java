@@ -5,19 +5,20 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
+public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Integer> {
 
-    Optional<Usuario> findByEmail(String email);
+    Optional<UsuarioEntity> findByEmail(String email);
 
-    Optional<Usuario> findByTelefone(String telefone);
+    Optional<UsuarioEntity> findByTelefone(String telefone);
 
-    @Transactional //Caso de um algum erro não pode deletar
+    Optional<UsuarioEntity> findByCpf(String cpf);
+
+    @Transactional
     void deleteByEmail(String email);
 
-    @Transactional //Caso de um algum erro não pode deleta
+    @Transactional
     void deleteByTelefone(String telefone);
 
-
-
-
+    @Transactional
+    void deleteByCpf(String cpf);
 }

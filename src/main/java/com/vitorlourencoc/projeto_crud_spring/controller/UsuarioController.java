@@ -1,7 +1,7 @@
 package com.vitorlourencoc.projeto_crud_spring.controller;
 
 import com.vitorlourencoc.projeto_crud_spring.business.UsuarioService;
-import com.vitorlourencoc.projeto_crud_spring.infrastructure.Usuario;
+import com.vitorlourencoc.projeto_crud_spring.infrastructure.UsuarioEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,18 +16,18 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> salvarUsuario(@RequestBody Usuario usuario){
+    public ResponseEntity<Void> salvarUsuario(@RequestBody UsuarioEntity usuario){
         usuarioService.salvarUsuario(usuario);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping(params = "email")
-    public ResponseEntity<Usuario> buscarUsuarioPorEmail(@RequestParam String email){
+    public ResponseEntity<UsuarioEntity> buscarUsuarioPorEmail(@RequestParam String email){
         return ResponseEntity.ok(usuarioService.buscarUsuarioPorEmail(email));
     }
 
     @GetMapping(params = "telefone")
-    public ResponseEntity<Usuario> buscarUsuarioPorTelefone(@RequestParam String telefone){
+    public ResponseEntity<UsuarioEntity> buscarUsuarioPorTelefone(@RequestParam String telefone){
         return ResponseEntity.ok(usuarioService.buscarUsuarioPorTelefone(telefone));
     }
 
@@ -44,12 +44,8 @@ public class UsuarioController {
     }
 
     @PutMapping
-    public ResponseEntity<Void> atualizarUsuarioPorId(@RequestParam Integer id, @RequestBody Usuario usuario){
+    public ResponseEntity<Void> atualizarUsuarioPorId(@RequestParam Integer id, @RequestBody UsuarioEntity usuario){
         usuarioService.atualizarUsuarioPorId(id, usuario);
         return ResponseEntity.ok().build();
     }
-
-
-
-
 }
